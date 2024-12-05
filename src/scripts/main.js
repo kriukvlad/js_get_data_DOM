@@ -2,13 +2,15 @@
 
 const elementList = [...document.querySelectorAll('.population')];
 
-const elementNumbers = elementList.map((el) => {
-  const populationText = el.textContent.trim();
+const elementNumbers = elementList
+  .map((el) => {
+    const populationText = el.textContent.trim();
 
-  const populationNumber = parseInt(populationText.replace(/,/g, ''));
+    const populationNumber = parseInt(populationText.replace(/,/g, ''));
 
-  return populationNumber;
-});
+    return populationNumber;
+  })
+  .filter((num) => num !== null);
 
 const total = elementNumbers.reduce(
   (acc, elementNumber) => acc + elementNumber,
